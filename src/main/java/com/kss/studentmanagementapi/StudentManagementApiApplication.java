@@ -13,9 +13,4 @@ public class StudentManagementApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StudentManagementApiApplication.class, args);
 	}
-
-	@GetMapping
-	public  String test() {
-		return "Test REST API";
-	}
 }
