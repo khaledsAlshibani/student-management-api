@@ -5,19 +5,28 @@ import java.util.List;
 public class Teacher {
     private Long teacherId;
     private String name;
-    private List<String> subjects;
+    private List<Subject> subjects;
 
     public Teacher() {}
 
-    public Teacher(Long teacherId, String name, List<String> subjects) {
+    public Teacher(Long teacherId, String name, List<Subject> subjects) {
         this.teacherId = teacherId;
         this.name = name;
         this.subjects = subjects;
     }
 
-    public Teacher(String name, List<String> subjects) {
+    public Teacher(String name, List<Subject> subjects) {
         this.name = name;
         this.subjects = subjects;
+    }
+
+    public Teacher(String name) {
+        this.name = name;
+    }
+
+    public Teacher(Long teacherId, String name) {
+        this.teacherId = teacherId;
+        this.name = name;
     }
 
     public Long getTeacherId() {
@@ -36,11 +45,11 @@ public class Teacher {
         this.name = name;
     }
 
-    public List<String> getSubjects() {
+    public List<Subject> getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(List<String> subjects) {
+    public void setSubjects(List<Subject> subjects) {
         this.subjects = subjects;
     }
 

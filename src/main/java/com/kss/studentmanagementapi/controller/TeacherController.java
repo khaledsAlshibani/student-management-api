@@ -1,5 +1,6 @@
 package com.kss.studentmanagementapi.controller;
 
+import com.kss.studentmanagementapi.model.Subject;
 import com.kss.studentmanagementapi.model.Teacher;
 import com.kss.studentmanagementapi.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,13 @@ public class TeacherController {
     @PutMapping("/{id}")
     public ResponseEntity<Teacher> updateTeacher(@PathVariable Long id, @RequestBody Teacher updatedTeacher) {
         Optional<Teacher> teacher = teacherService.updateTeacher(id, updatedTeacher);
+        return teacher.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
+    }
+
+    @PutMapping("/{id}/subjects")
+    public ResponseEntity<Teacher> addSubjectsToTeacher(@PathVariable Long id, @RequestBody List<Subject> subjects) {
+        Optional<Teacher> teacher = teacherService.addSubjectsToTeacher(id, subjects);
         return teacher.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }

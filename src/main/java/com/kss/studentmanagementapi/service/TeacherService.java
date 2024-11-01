@@ -1,5 +1,6 @@
 package com.kss.studentmanagementapi.service;
 
+import com.kss.studentmanagementapi.model.Subject;
 import com.kss.studentmanagementapi.model.Teacher;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ public class TeacherService {
     private Long nextId = 1L;
 
     public TeacherService() {
-        teachers.add(new Teacher(nextId++, "Dr. Smith", List.of("Math", "Physics")));
+        teachers.add(new Teacher(nextId++, "Dr. Smith"));
     }
 
     public List<Teacher> getAllTeachers() {
@@ -34,6 +35,14 @@ public class TeacherService {
         return getTeacherById(id).map(teacher -> {
             teacher.setName(updatedTeacher.getName());
             teacher.setSubjects(updatedTeacher.getSubjects());
+            return teacher;
+        });
+    }
+
+    // Method to add subjects to a teacher
+    public Optional<Teacher> addSubjectsToTeacher(Long teacherId, List<Subject> subjects) {
+        return getTeacherById(teacherId).map(teacher -> {
+            teacher.getSubjects().addAll(subjects);
             return teacher;
         });
     }

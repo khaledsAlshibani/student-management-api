@@ -1,12 +1,27 @@
 package com.kss.studentmanagementapi.model;
 
 public class Grade {
+    private Long gradeId;
     private Subject subject;
     private Double score;
+
+    public Grade(Long gradeId, Subject subject, Double score) {
+        this.gradeId = gradeId;
+        this.subject = subject;
+        this.score = score;
+    }
 
     public Grade(Subject subject, Double score) {
         this.subject = subject;
         this.score = score;
+    }
+
+    public Long getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(Long gradeId) {
+        this.gradeId = gradeId;
     }
 
     public Subject getSubject() {
@@ -28,7 +43,8 @@ public class Grade {
     @Override
     public String toString() {
         return "Grade{" +
-                "subject=" + subject +
+                "gradeId=" + gradeId +
+                ", subject=" + subject +
                 ", score=" + score +
                 '}';
     }

@@ -16,7 +16,8 @@ public class SubjectService {
 
     public SubjectService() {
         // Sample data for demonstration
-        Teacher teacher = new Teacher(1L, "Dr. Smith", List.of("Math", "Physics"));
+
+        Teacher teacher = new Teacher(1L, "Dr. Smith");
         subjects.add(new Subject(nextId++, "Math", teacher));
         subjects.add(new Subject(nextId++, "Physics", teacher));
     }
