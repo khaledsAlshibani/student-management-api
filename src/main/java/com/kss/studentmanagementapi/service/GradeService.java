@@ -18,14 +18,20 @@ public class GradeService {
 
     /** List of grades to store grade data in-memory. */
     private List<Grade> grades = new ArrayList<>();
+    private final SubjectService subjectService;
 
     /**
      * Default constructor initializing GradeService with sample data for demonstration purposes.
      */
-    public GradeService() {
-        // Sample data for demonstration purposes
-        Subject math = new Subject(1L, "Math", null);  // Placeholder for Teacher
-        grades.add(new Grade(math, 85.0));
+
+    public GradeService(SubjectService subjectService) {
+        this.subjectService = subjectService;
+
+        // Retrieve an existing subject from SubjectService
+        Optional<Subject> mathSubject = subjectService.getSubjectById(1L);
+
+        // If the subject exists, assign a grade to it
+        mathSubject.ifPresent(subject -> grades.add(new Grade(1L, subject, 85.0)));
     }
 
     /**

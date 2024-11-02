@@ -16,17 +16,33 @@ import java.util.Optional;
 @Service
 public class TeacherService {
 
-    /** List of teachers stored in-memory. */
+    /**
+     * List of teachers stored in-memory.
+     */
     private List<Teacher> teachers = new ArrayList<>();
 
-    /** Counter for generating unique teacher IDs. */
+    /**
+     * Counter for generating unique teacher IDs.
+     */
     private Long nextId = 1L;
 
     /**
      * Default constructor initializing TeacherService with sample data for demonstration purposes.
      */
     public TeacherService() {
-        teachers.add(new Teacher(nextId++, "Dr. Smith"));
+        // Create a teacher
+        Teacher teacher = new Teacher(nextId++, "Dr. Smith");
+
+        // Initialize subjects and assign them to the teacher
+        List<Subject> subjects = new ArrayList<>();
+        subjects.add(new Subject(1L, "Math", teacher));
+        subjects.add(new Subject(2L, "Physics", teacher));
+
+        // Set subjects to the teacher
+        teacher.setSubjects(subjects);
+
+        // Add the teacher with subjects to the teachers list
+        teachers.add(teacher);
     }
 
     /**
@@ -63,7 +79,7 @@ public class TeacherService {
     /**
      * Updates an existing teacher's details based on their unique ID.
      *
-     * @param id the unique identifier of the teacher to update
+     * @param id             the unique identifier of the teacher to update
      * @param updatedTeacher the teacher containing updated information
      * @return an Optional containing the updated teacher if found, otherwise empty
      */
@@ -79,7 +95,7 @@ public class TeacherService {
      * Adds subjects to an existing teacher's list of subjects.
      *
      * @param teacherId the unique identifier of the teacher to whom subjects are added
-     * @param subjects the list of subjects to add to the teacher's subjects
+     * @param subjects  the list of subjects to add to the teacher's subjects
      * @return an Optional containing the updated teacher if found, otherwise empty
      */
     public Optional<Teacher> addSubjectsToTeacher(Long teacherId, List<Subject> subjects) {

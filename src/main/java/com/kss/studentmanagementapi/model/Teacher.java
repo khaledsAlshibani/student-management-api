@@ -1,5 +1,7 @@
 package com.kss.studentmanagementapi.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 /**
@@ -15,7 +17,8 @@ public class Teacher {
     /** The full name of the teacher. */
     private String name;
 
-    /** List of subjects taught by the teacher. */
+    /** List of subjects taught by the teacher. - notation manages serialization reference */
+    @JsonManagedReference
     private List<Subject> subjects;
 
     /**

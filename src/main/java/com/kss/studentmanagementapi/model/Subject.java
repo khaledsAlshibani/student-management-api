@@ -1,5 +1,8 @@
 package com.kss.studentmanagementapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Represents a Subject that a student can study, taught by a specific teacher.
  * A Subject is uniquely identified by its subjectId and includes details
@@ -13,7 +16,9 @@ public class Subject {
     /** The name of the subject (e.g., Mathematics, Science). */
     private String name;
 
-    /** The teacher assigned to this subject. */
+    /** The teacher assigned to this subject. - notation used to prevents circular reference in JSON output, backs reference to avoid circular reference */
+    @JsonIgnore
+    @JsonBackReference
     private Teacher teacher;
 
     /**
