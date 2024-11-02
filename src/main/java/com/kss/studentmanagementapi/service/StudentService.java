@@ -6,7 +6,7 @@ import com.kss.studentmanagementapi.model.Subject;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +22,7 @@ public class StudentService {
 
         List<Grade> grades = List.of(new Grade(math, 85.0), new Grade(physics, 90.0));
 
-        students.add(new Student(nextId++, "Khaled", new Date(), "Taiz", "male", "enrolled", grades, "http://example.com/photos/khaled.jpg"));
+        students.add(new Student(nextId++, "Khaled", LocalDate.now(), "Taiz", "male", "enrolled", grades, "http://example.com/photos/khaled.jpg"));
     }
 
     public List<Student> getAllStudents() {

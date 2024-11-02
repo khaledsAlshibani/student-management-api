@@ -1,21 +1,22 @@
 package com.kss.studentmanagementapi.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Student {
     private Long studentId;
     private String name;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String birthPlace;
     private String gender;
     private String enrollmentStatus;
     private List<Grade> grades;
     private String photoUrl;
 
-    public Student() {}
+    public Student() {
+    }
 
-    public Student(Long studentId, String name, Date birthDate, String birthPlace, String gender, String enrollmentStatus, List<Grade> grades, String photoUrl) {
+    public Student(Long studentId, String name, LocalDate birthDate, String birthPlace, String gender, String enrollmentStatus, List<Grade> grades, String photoUrl) {
         this.studentId = studentId;
         this.name = name;
         this.birthDate = birthDate;
@@ -26,7 +27,7 @@ public class Student {
         this.photoUrl = photoUrl;
     }
 
-    public Student(String name, Date birthDate, String birthPlace, String gender, String enrollmentStatus, List<Grade> grades, String photoUrl) {
+    public Student(String name, LocalDate birthDate, String birthPlace, String gender, String enrollmentStatus, List<Grade> grades, String photoUrl) {
         this.name = name;
         this.birthDate = birthDate;
         this.birthPlace = birthPlace;
@@ -52,11 +53,11 @@ public class Student {
         this.name = name;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
