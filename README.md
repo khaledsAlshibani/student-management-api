@@ -67,6 +67,14 @@ This structure makes the API modular, scalable, and easier to maintain, as each 
 
 This layered structure promotes a clean separation of concerns, making the code modular and maintainable, while allowing each layer to operate independently with specific responsibilities.
 
+## Examples Screenshots
+
+**Example From localhost**:
+![Example](assets/example.png)
+
+**Example From online server**:
+![Example](assets/server-example.png)
+
 ## Endpoints
 
 ### Student Endpoints
@@ -147,17 +155,3 @@ This layered structure promotes a clean separation of concerns, making the code 
    git clone https://github.com/khaledsAlshibani/student-management-api
    cd student-management-api
    ```
-
-### Example Requests
-
-- **Get All Students:**
-  ```bash
-  GET /api/students
-  ```
-
-- **Add a Subject to a Teacher:**
-  ```bash
-  curl -X PUT http://localhost:8080/api/teachers/1/subjects \
-  -H "Content-Type: application/json" \
-  -d '[{"name": "Science", "teacher": {"teacherId": 1}}]'
-  ```
